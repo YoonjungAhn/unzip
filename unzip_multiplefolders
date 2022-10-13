@@ -1,0 +1,14 @@
+from zipfile import ZipFile
+import glob
+
+files = [i for i in glob.glob("D:/DATA/ParcelAtlasData20221012102459/ParcelAtlas/"+"*.ZIP") ]
+
+# loading the temp.zip and creating a zip object
+
+for f in files : 
+    with ZipFile(f, 'r') as zObject:
+      
+        # Extracting all the members of the zip 
+        # into a specific location.
+        zObject.extractall(
+            path="D:/DATA/ParcelAtlasData20221012102459/ParcelAtlas/")
